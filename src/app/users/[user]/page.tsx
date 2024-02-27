@@ -1,13 +1,11 @@
 import Navbar from "@/components/Navbar";
 import { Post, User } from "@/lib/types";
-import { truncateText } from "@/lib/utils";
 import axios from "axios";
-import { MoveRight, Pencil, Trash2 } from "lucide-react";
-import Link from "next/link";
 import { verify } from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { TOKEN_NAME, JWT_SECRET } from "@/components/constants/cookie";
-import { DeletePost } from "@/server/post";
+import PageLoader from "@/components/loader/PageLoader";
+import PostButtons from "./PostButtons";
 
 const page = async ({ params }: { params: { user: string } }) => {
   let user: User | null = null;
@@ -44,9 +42,9 @@ const page = async ({ params }: { params: { user: string } }) => {
     console.error(error);
   }
 
-  const handleDelete = async (id: string | number) => {
-    await DeletePost(id);
-  };
+  if (user === null) {
+    return <PageLoader />;
+  }
 
   return (
     <main>
@@ -93,43 +91,7 @@ const page = async ({ params }: { params: { user: string } }) => {
         <h2 className="text-3xl font-bold text-center mb-20 mt-12 text-amber-600">
           All Posts By {user?.name}
         </h2>
-        <div className="grid grid-cols-3 place-content-center gap-x-10 gap-y-14 place-items-center">
-          {posts.map((post, index) => (
-            <div key={index} className="max-w-72 flex flex-col justify-between">
-              <h2 className="font-semibold text-xl mb-6 text-center">
-                {truncateText(post.title, 4)}
-              </h2>
-              <p className="text-md">{truncateText(post.body, 10)}...</p>
-              <div className="mt-4 flex justify-between items-center">
-                <Link
-                  href={`/posts/${post.id}`}
-                  className="text-amber-500 font-bold flex"
-                >
-                  Read
-                  <MoveRight className="ml-2" />
-                </Link>
-                {authorIsUser && (
-                  <div className="flex space-x-2">
-                    <Link
-                      className="text-blue-500 font-bold flex items-center gap-2"
-                      href={`/edit/${post.id}`}
-                    >
-                      <Pencil size={15} className="ml-2" />
-                      Edit
-                    </Link>
-                    <button
-                      // onClick={() => handleDelete(post.id)}
-                      className="text-red-500 font-bold flex items-center gap-2"
-                    >
-                      <Trash2 size={15} className="ml-2" />
-                      Delete
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+        <PostButtons posts={posts} authorIsUser={authorIsUser}  />
       </section>
     </main>
   );
