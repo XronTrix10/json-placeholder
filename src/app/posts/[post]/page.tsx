@@ -23,22 +23,22 @@ const Post = async ({ params }: { params: { post: string } }) => {
       `https://jsonplaceholder.typicode.com/posts/${params.post}`
     );
     post = data;
-    const res = await axios(`https://jsonplaceholder.typicode.com/comments?postId=${params.post}`);
+    const res = await axios(
+      `https://jsonplaceholder.typicode.com/comments?postId=${params.post}`
+    );
     comments = res.data;
 
-    if (!access_token || !token) {
-      return;
+    if (access_token && token) {
+      const { value } = token;
+
+      const payload = verify(value, JWT_SECRET);
+      if (typeof payload === "string") return;
+
+      const res_2 = await axios(
+        `https://jsonplaceholder.typicode.com/users/${payload.id}`
+      );
+      user = res_2.data;
     }
-
-    const { value } = token;
-
-    const payload = verify(value, JWT_SECRET);
-    if (typeof payload === "string") return;
-
-    const res_2 = await axios(
-      `https://jsonplaceholder.typicode.com/users/${payload.id}`
-    );
-    user = res_2.data;
   } catch (error) {
     console.error(error);
   }

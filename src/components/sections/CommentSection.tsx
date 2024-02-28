@@ -3,7 +3,6 @@
 import { Comment, User } from "@/lib/types";
 import AddComment from "@/server/add-comment";
 import { Loader2, Lock, User as UserLogo } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 const CommentSection = (props: {
@@ -12,7 +11,6 @@ const CommentSection = (props: {
   postId: string;
 }) => {
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   let all_comments = props.comments;
 
