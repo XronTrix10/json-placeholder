@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import { TOKEN_NAME, JWT_SECRET } from "@/components/constants/cookie";
 import PageLoader from "@/components/loader/PageLoader";
 import PostButtons from "./PostButtons";
+import { BACKEND_URL } from "@/components/constants/backend";
 
 const page = async ({ params }: { params: { user: string } }) => {
   let user: User | null = null;
@@ -30,12 +31,8 @@ const page = async ({ params }: { params: { user: string } }) => {
   }
 
   try {
-    const { data } = await axios(
-      `https://jsonplaceholder.typicode.com/users/${params.user}`
-    );
-    const res = await axios(
-      `https://jsonplaceholder.typicode.com/posts?userId=${params.user}`
-    );
+    const { data } = await axios(`${BACKEND_URL}/users/${params.user}`);
+    const res = await axios(`${BACKEND_URL}/posts?userId=${params.user}`);
     user = data;
     posts = res.data;
   } catch (error) {
@@ -91,7 +88,7 @@ const page = async ({ params }: { params: { user: string } }) => {
         <h2 className="text-3xl font-bold text-center mb-20 mt-12 text-amber-600">
           All Posts By {user?.name}
         </h2>
-        <PostButtons posts={posts} authorIsUser={authorIsUser}  />
+        <PostButtons posts={posts} authorIsUser={authorIsUser} />
       </section>
     </main>
   );

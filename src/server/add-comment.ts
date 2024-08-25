@@ -1,5 +1,6 @@
 "use server";
 
+import { BACKEND_URL } from "@/components/constants/backend";
 import axios, { AxiosResponse } from "axios";
 
 const AddComment = async (comment: {
@@ -8,10 +9,7 @@ const AddComment = async (comment: {
   email: string;
   body: string;
 }) => {
-  const res = await axios.post(
-    "https://jsonplaceholder.typicode.com/comments",
-    comment
-  );
+  const res = await axios.post(`${BACKEND_URL}/comments`, comment);
 
   return res.data;
 };

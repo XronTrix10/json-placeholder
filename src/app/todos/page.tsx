@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import { TOKEN_NAME, JWT_SECRET } from "@/components/constants/cookie";
 import axios from "axios";
 import TodoLists from "./TodoLists";
+import { BACKEND_URL } from "@/components/constants/backend";
 
 const TodoPage = async () => {
   let todoList: Todo[] = [];
@@ -21,9 +22,7 @@ const TodoPage = async () => {
       const payload = verify(value, JWT_SECRET);
       if (typeof payload === "string") return;
       isLoggedIn = true;
-      const { data } = await axios(
-        `https://jsonplaceholder.typicode.com/todos?userId=${payload.id}`
-      );
+      const { data } = await axios(`${BACKEND_URL}/todos?userId=${payload.id}`);
       todoList = data;
     } catch (e) {
       console.error(e);
@@ -39,7 +38,7 @@ const TodoPage = async () => {
             Your TodoLists
           </h2>
 
-         <TodoLists todoList={todoList} />
+          <TodoLists todoList={todoList} />
         </section>
       ) : (
         <div className="h-[90vh] w-full grid place-content-center">

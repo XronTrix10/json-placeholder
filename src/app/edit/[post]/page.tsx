@@ -2,14 +2,13 @@ import Navbar from "@/components/Navbar";
 import EditForm from "./EditForm";
 import { type Post } from "@/lib/types";
 import axios from "axios";
+import { BACKEND_URL } from "@/components/constants/backend";
 
 const Edit = async ({ params }: { params: { post: string } }) => {
   let post: Post | null = null;
 
   try {
-    const { data } = await axios(
-      `https://jsonplaceholder.typicode.com/posts/${params.post}`
-    );
+    const { data } = await axios(`${BACKEND_URL}/posts/${params.post}`);
     post = data;
   } catch (error) {
     console.error(error);

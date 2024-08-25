@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import { TOKEN_NAME, JWT_SECRET } from "@/components/constants/cookie";
 import { type User } from "@/lib/types";
 import axios from "axios";
+import { BACKEND_URL } from "./constants/backend";
 
 const Header = async () => {
   let user: User | null = null;
@@ -18,9 +19,7 @@ const Header = async () => {
       // Get the name of the user
       if (typeof payload === "string") return;
 
-      const { data } = await axios(
-        `https://jsonplaceholder.typicode.com/users/${payload.id}`
-      );
+      const { data } = await axios(`${BACKEND_URL}/users/${payload.id}`);
       user = data;
     } catch (e) {
       console.error(e);

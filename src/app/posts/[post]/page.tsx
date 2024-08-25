@@ -6,6 +6,7 @@ import CommentSection from "@/components/sections/CommentSection";
 import { verify } from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { TOKEN_NAME, JWT_SECRET } from "@/components/constants/cookie";
+import { BACKEND_URL } from "@/components/constants/backend";
 
 const PostPage = async ({ params }: { params: { post: string } }) => {
   let post: Post | null = null;
@@ -19,13 +20,9 @@ const PostPage = async ({ params }: { params: { post: string } }) => {
   const token = cookieStore.get(TOKEN_NAME);
 
   try {
-    const { data } = await axios(
-      `https://jsonplaceholder.typicode.com/posts/${params.post}`
-    );
+    const { data } = await axios(`${BACKEND_URL}/posts/${params.post}`);
     post = data;
-    const res = await axios(
-      `https://jsonplaceholder.typicode.com/comments?postId=${params.post}`
-    );
+    const res = await axios(`${BACKEND_URL}/comments?postId=${params.post}`);
     comments = res.data;
 
     if (access_token && token) {
@@ -34,9 +31,7 @@ const PostPage = async ({ params }: { params: { post: string } }) => {
       const payload = verify(value, JWT_SECRET);
       if (typeof payload === "string") return;
 
-      const res_2 = await axios(
-        `https://jsonplaceholder.typicode.com/users/${payload.id}`
-      );
+      const res_2 = await axios(`${BACKEND_URL}/users/${payload.id}`);
       user = res_2.data;
     }
   } catch (error) {
@@ -45,9 +40,7 @@ const PostPage = async ({ params }: { params: { post: string } }) => {
 
   if (post) {
     try {
-      const { data } = await axios(
-        `https://jsonplaceholder.typicode.com/users/${post.userId}`
-      );
+      const { data } = await axios(`${BACKEND_URL}/users/${post.userId}`);
       author = data;
     } catch (error) {
       console.error(error);
