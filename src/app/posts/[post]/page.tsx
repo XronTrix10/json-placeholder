@@ -1,13 +1,13 @@
 import axios from "axios";
 import Link from "next/link";
-import { Post, User, Comment } from "@/lib/types";
+import { type Post, type User, type Comment } from "@/lib/types";
 import { MoveLeft } from "lucide-react";
 import CommentSection from "@/components/sections/CommentSection";
 import { verify } from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { TOKEN_NAME, JWT_SECRET } from "@/components/constants/cookie";
 
-const Post = async ({ params }: { params: { post: string } }) => {
+const PostPage = async ({ params }: { params: { post: string } }) => {
   let post: Post | null = null;
   let author: User | null = null;
   let comments: Comment[] = [];
@@ -90,4 +90,4 @@ const Post = async ({ params }: { params: { post: string } }) => {
   );
 };
 
-export default Post;
+export default PostPage;

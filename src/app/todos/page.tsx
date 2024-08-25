@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { Todo } from "@/lib/types";
+import { type Todo } from "@/lib/types";
 import { Lock } from "lucide-react";
 import { verify } from "jsonwebtoken";
 import { cookies } from "next/headers";
@@ -7,7 +7,7 @@ import { TOKEN_NAME, JWT_SECRET } from "@/components/constants/cookie";
 import axios from "axios";
 import TodoLists from "./TodoLists";
 
-const Todo = async () => {
+const TodoPage = async () => {
   let todoList: Todo[] = [];
   let isLoggedIn = false;
 
@@ -53,4 +53,4 @@ const Todo = async () => {
   );
 };
 
-export default Todo;
+export default TodoPage;
