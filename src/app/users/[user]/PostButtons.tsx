@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MoveRight, Pencil, Trash2 } from "lucide-react";
 import { DeletePost } from "@/server/post";
 import { truncateText } from "@/lib/utils";
-import { Post } from "@/lib/types";
+import { type Post } from "@/lib/types";
 import { useState } from "react";
 
 const PostButtons = (props: { posts: Post[]; authorIsUser: boolean }) => {

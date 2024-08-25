@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Suspense } from "react";
-import { Photo } from "@/lib/types";
+import { type Photo } from "@/lib/types";
 import Navbar from "@/components/Navbar";
 import PhotoGrid from "@/components/sections/PhotoGrid";
 import PageLoader from "@/components/loader/PageLoader";

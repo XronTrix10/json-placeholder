@@ -4,7 +4,7 @@ import { Loader2 } from "lucide-react";
 import React, { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { UpdatePost } from "@/server/post";
-import { Post } from "@/lib/types";
+import { type Post } from "@/lib/types";
 
 const EditForm = (props: { post: Post | null }) => {
   const [loading, setLoading] = useState(false);
@@ -50,7 +50,7 @@ const EditForm = (props: { post: Post | null }) => {
           id="title"
           placeholder={props.post?.title}
           required={true}
-          className="p-2 px-4 focus:outline-none bg-lime-200 text-black mr-4 rounded-full w-full"
+          className="p-2 px-4 focus:outline-none bg-lime-100 text-black mr-4 rounded-full w-full"
         />
       </div>
 
@@ -62,7 +62,7 @@ const EditForm = (props: { post: Post | null }) => {
           name="content"
           id="content"
           placeholder={props.post?.body}
-          className="p-2 px-4 focus:outline-none bg-lime-200 text-black mr-4 rounded-3xl w-full"
+          className="p-2 px-4 focus:outline-none bg-lime-100 text-black mr-4 rounded-3xl w-full"
           cols={30}
           rows={10}
           required={true}

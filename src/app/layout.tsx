@@ -20,10 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={poppins.className + " pt-12"}>
         <Header />
         {children}
-        </body>
+      </body>
     </html>
   );
 }

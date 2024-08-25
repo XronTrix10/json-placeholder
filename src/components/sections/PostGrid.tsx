@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Post } from "@/lib/types";
+import { type Post } from "@/lib/types";
 import { MoveRight } from "lucide-react";
 import { truncateText } from "@/lib/utils";
 

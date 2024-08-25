@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import EditForm from "./EditForm";
-import { Post } from "@/lib/types";
+import { type Post } from "@/lib/types";
 import axios from "axios";
 
 const Edit = async ({ params }: { params: { post: string } }) => {

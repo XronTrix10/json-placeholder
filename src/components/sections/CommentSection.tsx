@@ -1,6 +1,6 @@
 "use client";
 
-import { Comment, User } from "@/lib/types";
+import { type Comment, type User } from "@/lib/types";
 import AddComment from "@/server/add-comment";
 import { Loader2, Lock, User as UserLogo } from "lucide-react";
 import { FormEvent, useState } from "react";
@@ -52,7 +52,7 @@ const CommentSection = (props: {
               id="comment"
               placeholder="Enter Comment"
               required={true}
-              className="p-2 px-4 focus:outline-none bg-lime-200 text-black mr-4 rounded-full w-1/4"
+              className="p-2 px-4 focus:outline-none bg-lime-100 text-black mr-4 rounded-full w-1/4"
             />
             <button
               disabled={loading}

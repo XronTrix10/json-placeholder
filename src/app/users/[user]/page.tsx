@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import { Post, User } from "@/lib/types";
+import { type Post, type User } from "@/lib/types";
 import axios from "axios";
 import { verify } from "jsonwebtoken";
 import { cookies } from "next/headers";

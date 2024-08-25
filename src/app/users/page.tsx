@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import UserTable from "@/components/sections/UserTable";
-import { User } from "@/lib/types";
+import { type User } from "@/lib/types";
 import axios from "axios";
 import React from "react";
 

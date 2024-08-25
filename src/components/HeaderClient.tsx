@@ -13,10 +13,10 @@ import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
-import { User } from "@/lib/types";
+import { type User } from "@/lib/types";
 
 const HeaderClient = (props: { user: User | null }) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
 
   const handleLogin = async (event: FormEvent<HTMLFormElement>) => {
@@ -61,7 +61,7 @@ const HeaderClient = (props: { user: User | null }) => {
                       max={10}
                       required={true}
                       placeholder="Enter Between 1 and 10"
-                      className="p-1 px-2 rounded-full focus:outline-none bg-lime-200 text-black"
+                      className="p-2 rounded-full focus:outline-none bg-lime-100 text-black"
                     />
                   </div>
                   <div className="w-full">

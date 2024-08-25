@@ -1,8 +1,7 @@
 import Navbar from "@/components/Navbar";
-import Searchbar from "@/components/Searchbar";
 import PageLoader from "@/components/loader/PageLoader";
 import PostGrid from "@/components/sections/PostGrid";
-import { Post } from "@/lib/types";
+import { type Post } from "@/lib/types";
 import axios from "axios";
 import { Suspense } from "react";
 
@@ -25,5 +24,6 @@ export default async function Home() {
         <PostGrid posts={posts} />
       </Suspense>
     </main>
+    // <PageLoader />
   );
 }

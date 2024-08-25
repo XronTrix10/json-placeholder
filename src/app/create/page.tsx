@@ -51,7 +51,7 @@ const Create = () => {
               id="title"
               placeholder="Enter Post Title"
               required={true}
-              className="p-2 px-4 focus:outline-none bg-lime-200 text-black mr-4 rounded-full w-full"
+              className="p-2 px-4 focus:outline-none bg-lime-100 text-black mr-4 rounded-full w-full"
             />
           </div>
 
@@ -63,7 +63,7 @@ const Create = () => {
               name="content"
               id="content"
               placeholder="Enter Post Content"
-              className="p-2 px-4 focus:outline-none bg-lime-200 text-black mr-4 rounded-3xl w-full"
+              className="p-2 px-4 focus:outline-none bg-lime-100 text-black mr-4 rounded-3xl w-full"
               cols={30}
               rows={10}
               required={true}

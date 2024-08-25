@@ -1,6 +1,6 @@
 "use client";
 
-import { Photo } from "@/lib/types";
+import { type Photo } from "@/lib/types";
 import { useState } from "react";
 
 const PhotoGrid = (props: { photos: Photo[] }) => {

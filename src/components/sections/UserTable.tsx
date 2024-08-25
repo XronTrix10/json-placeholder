@@ -1,4 +1,4 @@
-import { User } from "@/lib/types";
+import { type User } from "@/lib/types";
 import { User as UserLogo } from "lucide-react";
 import Link from "next/link";
 import React from "react";

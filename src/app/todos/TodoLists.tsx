@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Todo } from "@/lib/types";
+import { type Todo } from "@/lib/types";
 import { Trash2 } from "lucide-react";
 
 const TodoLists = (props: { todoList: Todo[] }) => {
