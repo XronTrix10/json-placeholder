@@ -8,8 +8,8 @@ export default async function Home() {
   let posts: Post[] = [];
 
   try {
-    const data = await axios(`${BACKEND_URL}/posts`);
-    posts = data.data;
+    const { data } = await axios(`${BACKEND_URL}/posts`);
+    posts = data;
   } catch (error) {
     console.error(error);
   }
