@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Json Placeholder",
+  title: "{CRUD} Placeholder",
   description: "A Crud App for Rest API",
 };
 
