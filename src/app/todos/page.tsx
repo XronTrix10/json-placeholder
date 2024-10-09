@@ -34,7 +34,7 @@ const TodoPage = async () => {
       <Navbar page={3} />
       {isLoggedIn ? (
         <section className="w-4/5 mx-auto px-28 mb-32">
-          <h2 className="text-3xl font-bold text-center mb-20 mt-12 text-amber-600">
+          <h2 className="font-bold text-center mb-20 mt-12">
             Your TodoLists
           </h2>
 
@@ -42,7 +42,7 @@ const TodoPage = async () => {
         </section>
       ) : (
         <div className="h-[90vh] w-full grid place-content-center">
-          <h2 className="text-4xl text-amber-600 font-bold flex items-center">
+          <h2 className="font-bold flex items-center">
             Login to See Your Todo List{" "}
             <Lock className="ml-5" size={36} strokeWidth={2.5} />
           </h2>

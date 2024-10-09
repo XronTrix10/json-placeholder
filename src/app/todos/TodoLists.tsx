@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { type Todo } from "@/lib/types";
 import { Trash2 } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox"
 
 const TodoLists = (props: { todoList: Todo[] }) => {
   const [list, setList] = useState<Todo[]>(props.todoList);
@@ -27,15 +28,11 @@ const TodoLists = (props: { todoList: Todo[] }) => {
       {list.map((todo) => (
         <div
           key={todo.id}
-          className="flex items-center justify-between py-3 px-5 border border-amber-400 bg-gradient-to-r from-amber-200 via-gray-400 to-amber-100 rounded-full"
+          className="flex items-center justify-between py-3 px-5 border border-light bg-gradient-to-r from-light to-white rounded-full"
         >
           <div className="flex items-center gap-4">
-            <input
-              type="checkbox"
-              onClick={() => handleCheck(todo.id)}
-              checked={todo.completed}
-            />
-            <h5 className="text-xl font-bold">{todo.title}</h5>
+            <Checkbox checked={todo.completed} onClick={() => handleCheck(todo.id)} />
+            <h5 className="text-xl dark:text-black font-bold">{todo.title}</h5>
           </div>
           <button onClick={() => handleDelete(todo.id)}>
             <Trash2 size={18} className="ml-2 text-red-600" />

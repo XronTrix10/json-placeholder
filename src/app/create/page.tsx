@@ -37,7 +37,7 @@ const Create = () => {
       <Navbar page={0} />
 
       <section className="w-4/5 mx-auto px-20">
-        <h2 className="text-3xl font-bold text-center my-16 mt-12 text-amber-600">
+        <h2 className="font-bold text-center my-16 mt-12">
           Create Post
         </h2>
         <form onSubmit={handleSubmit} className="px-32 mb-36">
@@ -51,7 +51,7 @@ const Create = () => {
               id="title"
               placeholder="Enter Post Title"
               required={true}
-              className="p-2 px-4 focus:outline-none bg-lime-100 text-black mr-4 rounded-full w-full"
+              className="p-2 px-4 focus:outline-none bg-light text-black mr-4 rounded-full w-full"
             />
           </div>
 
@@ -63,7 +63,7 @@ const Create = () => {
               name="content"
               id="content"
               placeholder="Enter Post Content"
-              className="p-2 px-4 focus:outline-none bg-lime-100 text-black mr-4 rounded-3xl w-full"
+              className="p-2 px-4 focus:outline-none bg-light text-black mr-4 rounded-3xl w-full"
               cols={30}
               rows={10}
               required={true}
@@ -73,7 +73,7 @@ const Create = () => {
           <button
             disabled={loading}
             type="submit"
-            className="flex items-center p-2 px-4 bg-amber-400 w-fit mx-auto rounded-full text-black hover:text-white font-bold hover:font-normal hover:bg-amber-500"
+            className="flex items-center p-2 px-4 load-more w-fit mx-auto rounded-full font-bold"
           >
             {loading ? "Creating..." : "+ Create Post"}
             {loading && <Loader2 className="ml-2 animate-spin" />}

@@ -59,14 +59,14 @@ const HeaderClient = (props: { user: User | null }) => {
       </button>
       {!props.user ? (
         <Dialog>
-          <DialogTrigger className="p-2 px-4 rounded-full bg-white font-bold focus:outline-none">
+          <DialogTrigger className="p-2 px-4 rounded-full bg-light dark:bg-accent text-black dark:text-white hover:text-accent font-bold focus:outline-none">
             LogIn
           </DialogTrigger>
           <DialogContent className="text-center sm:rounded-2xl w-fit px-20 py-10">
             <DialogHeader className="mx-auto sm:rounded-2xl">
-              <DialogTitle className="text-xl font-bold">
+              <DialogTitle className="text-xl font-bold text-accent dark:text-accent">
                 LogIn to{" "}
-                <span className="text-amber-500">{`{CRUD} Placeholder`}</span>
+                <span>{`{CRUD} Placeholder`}</span>
               </DialogTitle>
               <DialogDescription>
                 <form onSubmit={handleLogin}>
@@ -82,14 +82,14 @@ const HeaderClient = (props: { user: User | null }) => {
                       max={10}
                       required={true}
                       placeholder="Enter Between 1 and 10"
-                      className="p-2 rounded-full focus:outline-none bg-lime-100 text-black"
+                      className="p-2 rounded-full focus:outline-none bg-light text-black"
                     />
                   </div>
                   <div className="w-full">
                     <button
                       disabled={loading}
                       type="submit"
-                      className="flex items-center mt-6 p-2 px-4 bg-amber-400 rounded-full text-black mx-auto hover:text-white font-bold hover:font-normal hover:bg-amber-500"
+                      className="flex items-center mt-6 p-2 px-4 bg-light dark:bg-accent text-black dark:text-white hover:text-accent rounded-full font-bold"
                     >
                       {loading ? "Loggin..." : "LogIn"}
                       {loading && <Loader2 className="ml-2 animate-spin" />}
