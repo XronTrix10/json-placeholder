@@ -25,3 +25,9 @@
     @apply text-4xl text-accent dark:text-light font-bold font-kaushan text-center;
   }
 }
+
+@layer components {
+  .load-more {
+    @apply hover:bg-accent border border-accent dark:border-light dark:text-light hover:dark:border-accent text-accent hover:text-white;
+  }
+}

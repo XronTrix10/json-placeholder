@@ -50,29 +50,29 @@ const PostPage = async ({ params }: { params: { post: string } }) => {
   return (
     <main className="min-h-screen">
       <section className="w-4/5 mx-auto mt-12">
-        <h2 className="text-3xl font-bold my-4">{post?.title}</h2>
-        <p className="my-2">
+        <h2 className="my-4">{post?.title}</h2>
+        <p className="mt-8 mb-2">
           By{" "}
           <Link
-            className="text-amber-600 font-bold"
+            className="text-accent font-bold"
             href={`/users/${author?.id}`}
           >
             {author?.name}
           </Link>
         </p>
         <img
-          className="my-12"
+          className="my-12 h-[500px] w-[800px]"
           src="https://picsum.photos/800/500"
           alt="Lorem Picsum"
         />
         <p className="w-3/4">{post?.body}</p>
-        <div className="h-[1px] w-4/5 bg-black mt-12"></div>
+        <div className="h-[1px] w-4/5 bg-dark dark:bg-light mt-12" />
       </section>
 
       <CommentSection comments={comments} user={user} postId={params.post} />
 
       <Link
-        className="p-2 px-4 bg-amber-400 rounded-full mx-auto flex w-fit mt-10 mb-24 font-bold hover:font-normal hover:bg-amber-500 hover:text-white"
+        className="load-more p-2 px-4 rounded-full mx-auto flex w-fit mt-10 mb-24 font-bold"
         href={"/"}
       >
         {" "}

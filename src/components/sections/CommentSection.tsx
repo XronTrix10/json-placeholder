@@ -52,12 +52,12 @@ const CommentSection = (props: {
               id="comment"
               placeholder="Enter Comment"
               required={true}
-              className="p-2 px-4 focus:outline-none bg-lime-100 text-black mr-4 rounded-full w-1/4"
+              className="p-2 px-4 focus:outline-none bg-light text-black mr-4 rounded-full w-1/4"
             />
             <button
               disabled={loading}
               type="submit"
-              className="flex items-center p-2 px-4 bg-amber-400 rounded-full text-black hover:text-white font-bold hover:font-normal hover:bg-amber-500"
+              className="flex items-center p-2 px-4 bg-accent rounded-full text-white font-bold hover:font-normal hover:bg-amber-500"
             >
               {loading ? "Working..." : "Add Comment"}
               {loading && <Loader2 className="ml-2 animate-spin" />}
@@ -74,12 +74,12 @@ const CommentSection = (props: {
       {all_comments.map((comment) => (
         <div key={comment.id} className="my-8">
           <div className="flex flex-row gap-4 items-center">
-            <div className="h-10 w-10 rounded-full bg-amber-300 grid place-content-center">
+            <div className="h-10 w-10 rounded-full bg-light dark:bg-accent text-black dark:text-white grid place-content-center">
               <UserLogo size={30} strokeWidth={1.5} />
             </div>
             <div>
               <p className="font-bold">{comment.name}</p>
-              <p className="text-sm mt-1 text-gray-600">{comment.email}</p>
+              <p className="text-sm mt-1 text-dark dark:text-light">{comment.email}</p>
             </div>
           </div>
           <p className="w-3/4 mt-4 ml-6">{comment.body}</p>
