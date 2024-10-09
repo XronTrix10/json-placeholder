@@ -64,7 +64,7 @@ const CommentSection = (props: {
             </button>
           </form>
         ) : (
-          <p className="text-amber-600 text-xl font-bold flex items-center">
+          <p className="text-accent text-xl font-bold flex items-center">
             Log In to Add Comments
             <Lock className="ml-2" />
           </p>
