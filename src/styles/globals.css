@@ -14,6 +14,9 @@
 }
  
 @layer base {
+  * {
+    @apply transition-all duration-300;
+  }
   body {
     @apply bg-background text-black dark:bg-dark dark:text-white font-comic;
   }
