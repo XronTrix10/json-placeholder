@@ -21,14 +21,14 @@ const PostButtons = (props: { posts: Post[]; authorIsUser: boolean }) => {
     <div className="grid grid-cols-3 place-content-center gap-x-10 gap-y-14 place-items-center">
       {allPosts.map((post, index) => (
         <div key={index} className="max-w-72 flex flex-col justify-between">
-          <h2 className="font-semibold text-xl mb-6 text-center">
+          <h3 className="font-semibold text-xl mb-6 text-center">
             {truncateText(post.title, 4)}
-          </h2>
+          </h3>
           <p className="text-md">{truncateText(post.body, 10)}...</p>
           <div className="mt-4 flex justify-between items-center">
             <Link
               href={`/posts/${post.id}`}
-              className="text-amber-500 font-bold flex"
+              className="text-accent dark:text-light font-semibold flex"
             >
               Read
               <MoveRight className="ml-2" />

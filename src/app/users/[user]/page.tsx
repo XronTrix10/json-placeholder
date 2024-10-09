@@ -55,7 +55,7 @@ const page = async ({ params }: { params: { user: string } }) => {
             alt="person"
           />
           <div>
-            <h4 className="text-2xl font-bold text-amber-500"> {user?.name}</h4>
+            <h4 className="text-2xl font-bold text-accent"> {user?.name}</h4>
             <span> {user?.username}</span>
 
             <ul className="mt-6">
@@ -85,7 +85,7 @@ const page = async ({ params }: { params: { user: string } }) => {
       </section>
 
       <section className="w-4/5 mx-auto mt-24 mb-36">
-        <h2 className="text-3xl font-bold text-center mb-20 mt-12 text-amber-600">
+        <h2 className="font-bold text-center mb-20 mt-12">
           All Posts By {user?.name}
         </h2>
         <PostButtons posts={posts} authorIsUser={authorIsUser} />

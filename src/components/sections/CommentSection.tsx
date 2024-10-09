@@ -57,7 +57,7 @@ const CommentSection = (props: {
             <button
               disabled={loading}
               type="submit"
-              className="flex items-center p-2 px-4 bg-accent rounded-full text-white font-bold hover:font-normal hover:bg-amber-500"
+              className="flex items-center p-2 px-4 bg-accent rounded-full text-white font-bold"
             >
               {loading ? "Working..." : "Add Comment"}
               {loading && <Loader2 className="ml-2 animate-spin" />}

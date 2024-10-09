@@ -19,7 +19,7 @@ const Edit = async ({ params }: { params: { post: string } }) => {
       <Navbar page={0} />
 
       <section className="w-4/5 mx-auto px-20">
-        <h2 className="text-3xl font-bold text-center my-16 mt-12 text-amber-600">
+        <h2 className="font-bold text-center my-16 mt-12">
           Update Post
         </h2>
         <EditForm post={post} />

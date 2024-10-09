@@ -10,7 +10,7 @@ const Navbar = (props: { page: number }) => {
       <div className="w-fit px-[6px] py-1 bg-light backdrop-blur-md rounded-full mx-auto flex items-center justify-evenly gap-2">
         {buttons.map((btn, index) => (
           <Link
-            className={`capitalize font-medium p-2 px-4 ${
+            className={`capitalize font-bold p-2 px-4 ${
               props.page === index ? "bg-accent text-white" : "text-dark"
             } rounded-full`}
             key={index}
