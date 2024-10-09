@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Comic_Neue, Kaushan_Script } from "next/font/google";
 import "../styles/globals.css";
 import Header from "@/components/Header";
 import ThemeProvider from "@/components/providers/ThemeProvider";
+import { cn } from "@/lib/utils";
 
-const poppins = Poppins({
+const comic = Comic_Neue({
   subsets: ["latin"],
-  weight: "300",
+  weight: ["300", "400", "700"],
+  variable: "--font-comic",
+});
+
+const kaushan = Kaushan_Script({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-kaushan",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className + " pt-12 bg-[#FAF7F0]"}>
+      <body className={cn(comic.variable, kaushan.variable, "pt-12")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
