@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "../styles/globals.css";
 import Header from "@/components/Header";
+import ThemeProvider from "@/components/providers/ThemeProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: "300"
+  weight: "300",
 });
 
 export const metadata: Metadata = {
@@ -20,9 +21,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className + " pt-12"}>
-        <Header />
-        {children}
+      <body className={poppins.className + " pt-12 bg-[#FAF7F0]"}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
