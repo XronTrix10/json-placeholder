@@ -27,9 +27,9 @@ const Header = async () => {
   }
 
   return (
-    <header className="bg-amber-400 w-full absolute top-0 z-50">
+    <header className="bg-accent dark:bg-light w-full fixed top-0 z-50">
       <div className="h-16 flex justify-between items-center w-4/5 mx-auto">
-        <h2 className="text-xl font-bold">{`{CRUD} Placeholder`}</h2>
+        <h2 className="text-2xl font-medium text-white dark:text-accent">{`{CRUD} Placeholder`}</h2>
         <HeaderClient user={user} />
       </div>
     </header>
